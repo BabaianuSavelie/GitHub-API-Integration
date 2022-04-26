@@ -1,0 +1,51 @@
+﻿<Window x:Class="GitHubAPI_Integration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GitHubAPI_Integration"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Icons/github.ico"
+        Title="GitHub API Caller" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--StackPanel for input form representation-->
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center">
+
+            <Label Content="Username"
+                   Style="{StaticResource BaseLabelStyle}"/>
+            <TextBox x:Name="input"
+                     Style="{StaticResource TextBoxStyle}"/>
+            <Label x:Name="ErrorLbl" Visibility="Collapsed"
+                   Style="{StaticResource ErrorLabel}"/>
+            <Button x:Name="submit" Content="Show Repositories"
+                    Style="{StaticResource SubmitStyle}"
+                    Click="submit_Click_1"/>
+        </StackPanel>
+
+        <!--StackPanel for ListView and Title representation-->
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1"
+                    Margin="10">
+
+            <Label Content="User Repositories"
+                   Style="{StaticResource HeadingStyle}"/>
+            <ListView Grid.Column="1"
+                      x:Name="RepositoriesRecipe"
+                 Margin="10"
+                      Height="350"
+                 Style="{StaticResource ListViewItemsStyle}">
+                
+            </ListView>
+        </StackPanel>
+        
+    </Grid>
+</Window>
